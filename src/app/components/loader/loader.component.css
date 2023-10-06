@@ -1,0 +1,35 @@
+.panel-center {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.progress-loader {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  background: rgba(0, 0, 0, 0.253);
+  height: 15px;
+  border-radius: 7px;
+}
+.progress {
+  width: 1px;
+  height: 15px;
+  border-radius: 7px;
+  background: black;
+  transition: 0.5s;
+  animation: loading_44 5s cubic-bezier(.4,1.01,1,1) infinite;
+}
+@keyframes loading_44 {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+  
