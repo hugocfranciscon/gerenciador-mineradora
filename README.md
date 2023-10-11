@@ -4,11 +4,12 @@ Projeto da pós JAVA
 ## Endereço de Deploy - GitHub Pages
 
 ## Protótipo
+https://www.figma.com/file/EJX2xgfntz8LtdCTd5hYPa/Gerenciamento-de-mineradora?type=design&node-id=3-5&mode=design&t=ng4w7zUC3qlgdJeJ-0
 
 ## Checklist
 
 - [x] Criar um repositório no GitHub com a estrutura do Gitflow, incluindo pelo menos as branches principais "main" e "develop."
-- [] Utilizar componentes de um framework CSS, como Bootstrap, Materialize ou outro à sua escolha.
+- [x] Utilizar componentes de um framework CSS, como Bootstrap, Materialize ou outro à sua escolha.
 - [] Apresentar as telas com layout responsivo, adaptando-se a diferentes tamanhos de tela, usando um framework CSS ou implementações personalizadas.
 - [] Desenvolver o layout da aplicação com componentes, tornando o cabeçalho e o rodapé componentes reutilizáveis.
 - [] Aplicar pelo menos dois tipos de data-binding, como Interpolation, Property Binding, Event Binding, Two-Way Data Binding, 
