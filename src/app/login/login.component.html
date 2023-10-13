@@ -1,0 +1,9 @@
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" [formGroup]="userForm" (ngSubmit)="login()">
+            <input type="text" formControlName="user" placeholder="Usuário"/>
+            <input type="password" formControlName="password" placeholder="Senha"/>
+            <button [disabled]="userForm.invalid">Login</button>
+        </form>
+    </div>
+</div>
