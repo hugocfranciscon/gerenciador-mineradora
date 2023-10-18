@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
+  public tabSelected: string = "CON";
+  public loading: boolean = false;
+  public filter: any = {};
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  filtering(filter: any) {
+
   }
 
 }

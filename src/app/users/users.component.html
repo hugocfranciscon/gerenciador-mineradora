@@ -1,1 +1,109 @@
-<p>users works!</p>
+<div [hidden]="!loading" class="carregando">
+	<div class="spinner-border" role="status"></div>
+	<span style="margin-left: 10px">Carregando...</span>
+</div>
+
+<div class="card" [hidden]="loading">
+	<div class="d-flex justify-content-between">
+		<h4>Usuarios</h4>
+	</div>
+
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+			<a class="nav-link cursor-pointer" [ngClass]="{'active': tabSelected == 'CON'}" (click)="tabSelected = 'CON'">Consulta</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link cursor-pointer" [ngClass]="{'active': tabSelected == 'CAD'}" (click)="tabSelected = 'CAD'">Cadastro</a>
+		</li>
+	</ul>
+
+	<div style="height: 400px; overflow: auto" *ngIf="tabSelected == 'CON'">
+		<table class="table table-sm table-hover
+            col-sm-12">
+			<thead>
+				<tr>
+					<th class="col-sm-2">
+						<button class="btn btn-sm btn-primary">
+							Novo
+						</button>
+					</th>
+					<th class="col-sm-2">
+						Nome
+						<input type="text" class="form-control form-control-sm" [(ngModel)]="filter.name" (ngModelChange)="filtering(filter)" placeholder="Pesquisar..." />
+					</th>
+					<th class="col-sm-2">
+						Email
+						<input type="text" class="form-control form-control-sm" [(ngModel)]="filter.email" (ngModelChange)="filtering(filter)" placeholder="Pesquisar..." />
+					</th>
+					<th class="col-sm-2">
+						Telefone
+						<input type="text" class="form-control form-control-sm" [(ngModel)]="filter.fone" (ngModelChange)="filtering(filter)" placeholder="Pesquisar..." />
+					</th>
+					<th class="col-sm-1">
+						Situação
+						<input type="text" class="form-control form-control-sm" [(ngModel)]="filter.status" (ngModelChange)="filtering(filter)" placeholder="Pesquisar..." />
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--tr class="align-middle" *ngFor="let u of usuariosFiltrados.slice(
+                    paginaUsuarioConsulta * paginaUsuarioConsultaTamanho, (paginaUsuarioConsulta + 1) * paginaUsuarioConsultaTamanho );
+                    index as i">
+                    <td>
+                        <button class="btn btn-sm btn-success me-1" (click)="alterarUsuario(u)">
+                            Editar
+                        </button>
+                    </td>
+                    <td>{{ u.nome }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.telefone }}</td>
+                    <td>{{ u.status == "A" ? "Ativo" : "Inativo" }}</td>
+                </tr-->
+			</tbody>
+		</table>
+	</div>
+	<div style="height: 400px; overflow: auto" *ngIf="tabSelected == 'CAD'">
+
+		<div class="col-sm-12">
+			<div class="mb-3 col">
+				<label for="nameUser" class="form-label">Nome</label>
+				<input type="text" class="form-control form-control-sm" id="nameUser">
+			</div>
+			<div class="mb-3 col">
+				<label for="emailUser" class="form-label">Email</label>
+				<input type="email" class="form-control form-control-sm" id="emailUser">
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="mb-3 col">
+				<label for="foneUser" class="form-label">Telefone</label>
+				<input type="text" class="form-control form-control-sm" id="foneUser">
+			</div>
+			<div class="mb-3 col">
+				<label for="statusUser" class="form-label">Status</label>
+				<select class="form-control form-control-sm" id="statusUser">
+				</select>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<div class="mb-3 col">
+				<label for="loginUser" class="form-label">Usuário</label>
+				<input type="text" class="form-control form-control-sm" id="loginUser">
+			</div>
+			<div class="mb-3 col">
+				<label for="passUser" class="form-label">Senha</label>
+				<input type="password" class="form-control form-control-sm" id="passUser">
+			</div>
+			<div class="mb-3 col">
+				<label for="typeUser" class="form-label">Tipo de conta</label>
+				<select class="form-control form-control-sm" id="typeUser">
+				</select>
+			</div>
+		</div>
+		<div class="col-sm-12">
+			<button type="button" class="btn btn-primary">Confirmar</button>
+			<button type="button" class="btn btn-danger">Cancelar</button>
+		</div>
+
+	</div>
+</div>
