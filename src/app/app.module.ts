@@ -10,15 +10,26 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UsersComponent } from './users/users.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, HeaderComponent, FooterComponent, UsersComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    UsersComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxMaskModule.forRoot(),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
