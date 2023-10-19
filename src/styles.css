@@ -2,3 +2,8 @@
 .cursor-pointer {
     cursor: pointer;
 }
+
+.loading {
+    padding-top: 100px;
+    text-align: center;
+}

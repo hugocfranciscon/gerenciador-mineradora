@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../services/filter.service';
+import { RequestService } from '../services/request.service';
 
 @Component({
   selector: 'app-users',
@@ -24,9 +25,11 @@ export class UsersComponent implements OnInit {
   public pageSize: number = 8;
   public totalItens: number = 0;
 
-  constructor(private filter: FilterService) {}
+  constructor(private filter: FilterService, private req: RequestService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUsers()
+  }
 
   filtering() {
     let ret: any = this.filter.filter(this.users, {
@@ -47,14 +50,55 @@ export class UsersComponent implements OnInit {
     this.tabSelected = 'CAD';
   }
 
-  confirmUser() {}
+  confirmUser() {
+    this.loading = true;
+    if (this.form.hasOwnProperty('id')) {
+      this.req.put('users/'+this.form.id, this.form).subscribe(
+        (ret: any) => {
+          if (ret.status == 'erro') {
+            this.loading = false;
+            alert(ret.msg);
+            return;
+          }
+          alert('Usuário salvo com sucesso');
+          this.tabSelected = 'CON';
+          this.getUsers();
+        },
+        (err: any) => {
+          this.loading = false;
+          alert('ERRO ' + err);
+        }
+      );
+      return;
+    }
+    this.req.post('users', this.form).subscribe(
+      (ret: any) => {
+        if (ret.status == 'erro') {
+          this.loading = false;
+          alert(ret.msg);
+          return;
+        }
+        alert('Usuário salvo com sucesso');
+        this.tabSelected = 'CON';
+        this.getUsers();
+      },
+      (err: any) => {
+        this.loading = false;
+        alert('ERRO ' + err);
+      }
+    );
+
+  }
 
   cancelUser() {
     this.form = {};
     this.tabSelected = 'CON';
   }
 
-  alterUser(u: any) {}
+  editUser(u: any) {
+    this.form = JSON.parse(JSON.stringify(u));
+    this.tabSelected = 'CAD';
+  }
 
   formValid() {
     if (
@@ -69,5 +113,23 @@ export class UsersComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  getUsers() {
+    this.loading = true;
+    this.req.get('users', {}).subscribe(
+      (ret: any) => {
+        this.loading = false;
+        if (ret.status == 'erro') {          
+          alert(ret.msg);
+          return;
+        }
+        this.users = ret;
+      },
+      (err: any) => {
+        this.loading = false;
+        alert('ERRO ' + err);
+      }
+    );
   }
 }

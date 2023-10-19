@@ -18,4 +18,14 @@ export class RequestService {
     let lUrl = environment.url + url;
     return this.http.post(lUrl, body);
   }
+
+  put(url: string, body: any): Observable<any> {
+    let lUrl = environment.url + url;
+    return this.http.put(lUrl, body);
+  }
+
+  delete(url: string, body: any): Observable<any> {
+    let lUrl = environment.url + url;
+    return this.http.delete(lUrl, body);
+  }
 }

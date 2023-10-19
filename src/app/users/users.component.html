@@ -1,8 +1,7 @@
-<div [hidden]="!loading" class="carregando">
+<div [hidden]="!loading" class="loading">
 	<div class="spinner-border" role="status"></div>
 	<span style="margin-left: 10px">Carregando...</span>
 </div>
-
 <div class="container" [hidden]="loading">
 	<div class="d-flex justify-content-between">
 		<h4>Usuarios</h4>
@@ -48,7 +47,7 @@
 				<tbody>
 					<tr class="align-middle" *ngFor="let u of filtering(); index as i">
 						<td>
-							<button class="btn btn-sm btn-success me-1" (click)="alterUser(u)">
+							<button class="btn btn-sm btn-success me-1" (click)="editUser(u)">
 								Editar
 							</button>
 						</td>
