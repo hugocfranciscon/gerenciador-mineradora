@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
+import { CustomersComponent } from './customers/customers.component';
+import { EquipamentComponent } from './equipament/equipament.component';
+import { EventComponent } from './event/event.component';
+import { OsComponent } from './os/os.component';
 
 const routes: Routes = [
   {
@@ -20,6 +24,22 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent,
+      },
+      {
+        path: 'customers',
+        component: CustomersComponent,
+      },
+      {
+        path: 'equipaments',
+        component: EquipamentComponent,
+      },
+      {
+        path: 'events',
+        component: EventComponent,
+      },
+      {
+        path: 'os',
+        component: OsComponent,
       },
     ],
   },

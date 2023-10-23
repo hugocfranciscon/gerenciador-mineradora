@@ -12,6 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UsersComponent } from './users/users.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CustomersComponent } from './customers/customers.component';
+import { EquipamentComponent } from './equipament/equipament.component';
+import { EventComponent } from './event/event.component';
+import { OsComponent } from './os/os.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     FooterComponent,
     UsersComponent,
+    CustomersComponent,
+    EquipamentComponent,
+    EventComponent,
+    OsComponent,
   ],
   imports: [
     BrowserModule,
