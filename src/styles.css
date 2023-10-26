@@ -7,3 +7,13 @@
     padding-top: 100px;
     text-align: center;
 }
+
+.btn-register {
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.height-table {
+    min-height: 400px;
+}

@@ -1,0 +1,49 @@
+<div [hidden]="!loading" class="loading">
+	<div class="spinner-border" role="status"></div>
+	<span style="margin-left: 10px">Carregando...</span>
+</div>
+<div class="height-table" [hidden]="loading">
+    <table class="table table-sm table-hover col-sm-12">
+        <thead>
+            <tr>
+                <th class="col-sm-2">
+                    <button class="btn btn-sm btn-primary" (click)="newUser()">
+                        Novo
+                    </button>
+                </th>
+                <th class="col-sm-2">
+                    Nome
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="formFilter.name" placeholder="Pesquisar..." />
+                </th>
+                <th class="col-sm-2">
+                    Email
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="formFilter.email" placeholder="Pesquisar..." />
+                </th>
+                <th class="col-sm-2">
+                    Telefone
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="formFilter.fone" placeholder="Pesquisar..." />
+                </th>
+                <th class="col-sm-1">
+                    Situação
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="formFilter.status" placeholder="Pesquisar..." />
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle" *ngFor="let u of filtering(); index as i">
+                <td>
+                    <button class="btn btn-sm btn-success me-1" (click)="editUser(u)">
+                        Editar
+                    </button>
+                </td>
+                <td>{{ u.name }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.fone }}</td>
+                <td>{{ u.status == "A" ? "Ativo" : "Inativo" }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="flex-center">
+    <ngb-pagination [collectionSize]="totalItens" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [boundaryLinks]="true" [ellipses]="false"></ngb-pagination>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="mb-3 col-md-6 col-sm-12">
+        <label for="nameUser" class="form-label">Nome</label>
+        <input type="text" class="form-control form-control-sm" id="nameUser" [(ngModel)]="form.name">
+    </div>
+    <div class="mb-3 col-md-6 col-sm-12">
+        <label for="emailUser" class="form-label">Email</label>
+        <input type="email" class="form-control form-control-sm" id="emailUser" [(ngModel)]="form.email">
+    </div>
+</div>
+<div class="row">
+    <div class="mb-3 col-md-6 col-sm-12">
+        <label for="foneUser" class="form-label">Telefone</label>
+        <input type="text" class="form-control form-control-sm" id="foneUser" [(ngModel)]="form.fone" [mask]="'(00) 00000-0000'" maxLength="15" minLength="14">
+    </div>
+    <div class="mb-3 col-md-6 col-sm-12">
+        <label for="statusUser" class="form-label">Status</label>
+        <select class="form-control form-control-sm" id="statusUser" [(ngModel)]="form.status">
+            <option value="A">Ativo</option>
+            <option value="I">Inativo</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="mb-3 col-md-4 col-sm-12">
+        <label for="loginUser" class="form-label">Usuário</label>
+        <input type="text" class="form-control form-control-sm" id="loginUser" [(ngModel)]="form.login">
+    </div>
+    <div class="mb-3 col-md-4 col-sm-12">
+        <label for="passUser" class="form-label">Senha</label>
+        <input type="password" class="form-control form-control-sm" id="passUser" [(ngModel)]="form.password">
+    </div>
+    <div class="mb-3 col-md-4 col-sm-12">
+        <label for="typeUser" class="form-label">Tipo de conta</label>
+        <select class="form-control form-control-sm" id="typeUser" [(ngModel)]="form.type">
+            <option value="A">Administrador</option>
+            <option value="O">Operacional</option>
+        </select>
+    </div>
+</div>
+<div>
+    <app-btn classes="btn-success"  (click)="confirmUser()" [disable]=!formValid() label="Confirmar"></app-btn>
+    <app-btn classes="btn-danger" (click)="cancelUser()" label="Cancelar"></app-btn>
+</div>
+<app-alert></app-alert>

@@ -31,10 +31,10 @@
       "name": "bbbb",
       "email": "bb@bb.bb",
       "fone": "99999999999",
-      "status": "A",
+      "status": "I",
       "login": "b",
       "password": "b",
-      "type": "A",
+      "type": "O",
       "id": 4
     },
     {
@@ -106,6 +106,26 @@
       "password": "i",
       "type": "A",
       "id": 11
+    },
+    {
+      "name": "hugo",
+      "email": "teste@teste.com",
+      "fone": "99999999999",
+      "status": "A",
+      "login": "a",
+      "password": "a",
+      "type": "A",
+      "id": 12
+    },
+    {
+      "name": "teste hugo 2",
+      "email": "a@a.a",
+      "fone": "99999999999",
+      "status": "A",
+      "login": "teste",
+      "password": "teste",
+      "type": "A",
+      "id": 13
     }
   ],
   "profile": {
