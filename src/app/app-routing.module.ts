@@ -9,6 +9,8 @@ import { EventComponent } from './event/event.component';
 import { OsComponent } from './os/os.component';
 import { UserPostComponent } from './user-post/user-post.component';
 import { UserConsComponent } from './user-cons/user-cons.component';
+import { CustomerConsComponent } from './customer-cons/customer-cons.component';
+import { CustomerPostComponent } from './customer-post/customer-post.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,16 @@ const routes: Routes = [
       {
         path: 'customers',
         component: CustomersComponent,
+        children: [
+          {
+            path: '',
+            component: CustomerConsComponent,
+          },
+          {
+            path: 'post/:id',
+            component: CustomerPostComponent,
+          },
+        ],
       },
       {
         path: 'equipaments',

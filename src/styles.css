@@ -17,3 +17,8 @@
 .height-table {
     min-height: 400px;
 }
+
+.error-message {
+    color: red;
+    padding: 10px;
+}

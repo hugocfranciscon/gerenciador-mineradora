@@ -10,7 +10,7 @@ export class BtnComponent implements OnInit {
   @Input() classes: string = '';
   @Input() toolTip: string = '';
   @Input() label: string = '';
-  @Input() disable: boolean = false;
+  @Input() disabled: boolean = false;
 
   constructor() {}
 

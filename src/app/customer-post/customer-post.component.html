@@ -1,0 +1,114 @@
+<app-loading [hidden]="!loading"></app-loading>
+<form [hidden]="loading" class="col s12" #form="ngForm" (submit)="confirmCustomer()">
+    <div class="row">
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-name" class="form-label">Nome</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-name" 
+                name="input-name" 
+                [(ngModel)]="this.customer.name" 
+                #name="ngModel" 
+                required>
+        </div>
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-surname" class="form-label">Fantasia</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-surname" 
+                name="input-surname" 
+                [(ngModel)]="this.customer.surname" 
+                #surname="ngModel" 
+                required>
+        </div>
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-cpfCnpj" class="form-label">CNPJ/CPF</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-cpfCnpj" 
+                name="input-cpfCnpj" 
+                [(ngModel)]="this.customer.cpfCnpj" 
+                mask="CPF_CNPJ"
+                #cpfCnpj="ngModel" 
+                required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-6 col-sm-12">
+            <label for="input-fone" class="form-label">Telefone</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-fone" 
+                name="input-fone" 
+                [(ngModel)]="this.customer.fone" 
+                #fone="ngModel" 
+                [mask]="'(00) 00000-0000'" maxLength="15" minLength="14"
+                required>
+        </div>
+        <div class="mb-3 col-md-6 col-sm-12">
+            <label for="input-email" class="form-label">Email</label>
+            <input 
+                type="email" 
+                class="form-control form-control-sm" 
+                id="input-email" 
+                name="input-email" 
+                [(ngModel)]="this.customer.email" 
+                #email="ngModel" 
+                required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-city" class="form-label">Cidade</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-city" 
+                name="input-city" 
+                [(ngModel)]="this.customer.city" 
+                #city="ngModel" 
+                required>
+        </div>
+        <div class="mb-3 col-md-2 col-sm-12">
+            <label for="input-state" class="form-label">Estado</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-state" 
+                name="input-state" 
+                [(ngModel)]="this.customer.state" 
+                #state="ngModel" 
+                required>
+        </div>
+        <div class="mb-3 col-md-6 col-sm-12">
+            <label for="input-address" class="form-label">Logradouro</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-address" 
+                name="input-address" 
+                [(ngModel)]="this.customer.address" 
+                #address="ngModel" 
+                required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-status" class="form-label">Status</label>
+            <select class="form-control form-control-sm" id="input-status" name="input-status" [(ngModel)]="this.customer.status" #status="ngModel" required>
+                <option value="A">Ativo</option>
+                <option value="I">Inativo</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <app-btn classes="btn-success" type="submit" label="Confirmar" [disabled]=!form.valid></app-btn>
+        <app-btn classes="btn-danger" (click)="cancelCustomer()" label="Cancelar"></app-btn>
+    </div>   
+
+</form>
+<app-alert></app-alert>

@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th class="col-sm-2">
-                    <button class="btn btn-sm btn-primary" (click)="newUser()">
+                    <button class="btn btn-sm btn-primary" (click)="newCustomer()">
                         Novo
                     </button>
                 </th>
@@ -29,8 +29,11 @@
         <tbody>
             <tr class="align-middle" *ngFor="let u of filtering(); index as i">
                 <td>
-                    <button class="btn btn-sm btn-success me-1" (click)="editUser(u)">
+                    <button class="btn btn-sm btn-success me-1" (click)="editCustomer(u)">
                         Editar
+                    </button>
+                    <button class="btn btn-sm btn-danger me-1" (click)="deleteCustomer(u)">
+                        Excluir
                     </button>
                 </td>
                 <td>{{ u.name }}</td>

@@ -1,21 +1,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RequestService } from '../services/request.service';
 import { AlertComponent } from '../components/alert/alert.component';
-import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { User } from '../models/User';
+import { Customer } from '../models/Customer';
+import { RequestService } from '../services/request.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-post',
-  templateUrl: './user-post.component.html',
-  styleUrls: ['./user-post.component.css'],
+  selector: 'app-customer-post',
+  templateUrl: './customer-post.component.html',
+  styleUrls: ['./customer-post.component.css'],
 })
-export class UserPostComponent implements OnInit {
+export class CustomerPostComponent implements OnInit {
   @ViewChild(AlertComponent) alertComponent: AlertComponent | undefined;
   @ViewChild('form') form!: NgForm;
 
   public loading: boolean = false;
-  public user!: User;
+  public customer!: Customer;
 
   constructor(
     private req: RequestService,
@@ -24,14 +24,14 @@ export class UserPostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.user = new User();
+    this.customer = new Customer();
     const routeParams = this.route.snapshot.paramMap;
     if (Number(routeParams.get('id')) > 0) {
       this.loading = true;
-      this.req.get('users/' + Number(routeParams.get('id'))).subscribe(
+      this.req.get('customers/' + Number(routeParams.get('id'))).subscribe(
         (ret: any) => {
           this.loading = false;
-          this.user = ret;
+          this.customer = ret;
         },
         (err: any) => {
           this.loading = false;
@@ -41,10 +41,10 @@ export class UserPostComponent implements OnInit {
     }
   }
 
-  confirmUser() {
+  confirmCustomer() {
     this.loading = true;
-    if (this.user?.id != undefined) {
-      this.req.put('users/' + this.user.id, this.user).subscribe(
+    if (this.customer?.id != undefined) {
+      this.req.put('customers/' + this.customer.id, this.customer).subscribe(
         (ret: any) => {
           if (ret.status == 'erro') {
             this.loading = false;
@@ -53,9 +53,9 @@ export class UserPostComponent implements OnInit {
           }
           this.alertComponent?.showModal(
             'Sucesso',
-            'Usuário salvo com sucesso.'
+            'Cliente salvo com sucesso.'
           );
-          this.router.navigate(['/home/users']);
+          this.router.navigate(['/home/customers']);
         },
         (err: any) => {
           this.loading = false;
@@ -64,15 +64,15 @@ export class UserPostComponent implements OnInit {
       );
       return;
     }
-    this.req.post('users', this.user).subscribe(
+    this.req.post('customers', this.customer).subscribe(
       (ret: any) => {
         if (ret.status == 'erro') {
           this.loading = false;
           alert(ret.msg);
           return;
         }
-        this.alertComponent?.showModal('Sucesso', 'Usuário salvo com sucesso.');
-        this.router.navigate(['/home/users']);
+        this.alertComponent?.showModal('Sucesso', 'Cliente salvo com sucesso.');
+        this.router.navigate(['/home/customers']);
       },
       (err: any) => {
         this.loading = false;
@@ -81,7 +81,7 @@ export class UserPostComponent implements OnInit {
     );
   }
 
-  cancelUser() {
-    this.router.navigate(['/home/users']);
+  cancelCustomer() {
+    this.router.navigate(['/home/customers']);
   }
 }

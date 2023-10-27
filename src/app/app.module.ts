@@ -20,6 +20,9 @@ import { BtnComponent } from './components/btn/btn.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { UserPostComponent } from './user-post/user-post.component';
 import { UserConsComponent } from './user-cons/user-cons.component';
+import { CustomerConsComponent } from './customer-cons/customer-cons.component';
+import { CustomerPostComponent } from './customer-post/customer-post.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { UserConsComponent } from './user-cons/user-cons.component';
     AlertComponent,
     UserPostComponent,
     UserConsComponent,
+    CustomerConsComponent,
+    CustomerPostComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
