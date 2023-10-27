@@ -18,7 +18,20 @@
       "id": 1
     }
   ],
-  "customers": [],
+  "customers": [
+    {
+      "name": "hugo",
+      "surname": "hugo",
+      "cpfCnpj": "070.470.609-10",
+      "fone": "43988087502",
+      "email": "hugo@gmail.com",
+      "city": "cambira",
+      "state": "pr",
+      "address": "teste",
+      "status": "A",
+      "id": 1
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
