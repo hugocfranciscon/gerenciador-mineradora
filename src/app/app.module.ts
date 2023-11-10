@@ -23,6 +23,11 @@ import { UserConsComponent } from './user-cons/user-cons.component';
 import { CustomerConsComponent } from './customer-cons/customer-cons.component';
 import { CustomerPostComponent } from './customer-post/customer-post.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { EquipamentConsComponent } from './equipament-cons/equipament-cons.component';
+import { EquipamentPostComponent } from './equipament-post/equipament-post.component';
+import { EventConsComponent } from './event-cons/event-cons.component';
+import { EventPostComponent } from './event-post/event-post.component';
+import { OsConsComponent } from './os-cons/os-cons.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,11 @@ import { LoadingComponent } from './components/loading/loading.component';
     CustomerConsComponent,
     CustomerPostComponent,
     LoadingComponent,
+    EquipamentConsComponent,
+    EquipamentPostComponent,
+    EventConsComponent,
+    EventPostComponent,
+    OsConsComponent,
   ],
   imports: [
     BrowserModule,

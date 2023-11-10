@@ -11,6 +11,8 @@ import { UserPostComponent } from './user-post/user-post.component';
 import { UserConsComponent } from './user-cons/user-cons.component';
 import { CustomerConsComponent } from './customer-cons/customer-cons.component';
 import { CustomerPostComponent } from './customer-post/customer-post.component';
+import { EquipamentConsComponent } from './equipament-cons/equipament-cons.component';
+import { EquipamentPostComponent } from './equipament-post/equipament-post.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,16 @@ const routes: Routes = [
       {
         path: 'equipaments',
         component: EquipamentComponent,
+        children: [
+          {
+            path: '',
+            component: EquipamentConsComponent,
+          },
+          {
+            path: 'post/:id',
+            component: EquipamentPostComponent,
+          },
+        ],
       },
       {
         path: 'events',

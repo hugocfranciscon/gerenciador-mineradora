@@ -1,0 +1,41 @@
+<app-loading [hidden]="!loading"></app-loading>
+<form [hidden]="loading" class="col s12" #form="ngForm" (submit)="confirmEquipament()">
+    <div class="row">
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-name" class="form-label">Nome</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-name" 
+                name="input-name" 
+                [(ngModel)]="this.equipament.description" 
+                #name="ngModel" 
+                required>
+        </div>
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-name" class="form-label">Tipo de Equipamento</label>
+            <input 
+                type="text" 
+                class="form-control form-control-sm" 
+                id="input-name" 
+                name="input-name" 
+                [(ngModel)]="this.equipament.type" 
+                #name="ngModel" 
+                required>
+        </div>
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-status" class="form-label">Status</label>
+            <select class="form-control form-control-sm" id="input-status" name="input-status" [(ngModel)]="this.equipament.status" #status="ngModel" required>
+                <option value="A">Ativo</option>
+                <option value="I">Inativo</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <app-btn classes="btn-success" type="submit" label="Confirmar" [disabled]=!form.valid></app-btn>
+        <app-btn classes="btn-danger" (click)="cancelEquipament()" label="Cancelar"></app-btn>
+    </div>   
+
+</form>
+<app-alert></app-alert>

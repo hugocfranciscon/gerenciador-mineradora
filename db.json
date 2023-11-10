@@ -32,6 +32,13 @@
       "id": 1
     }
   ],
+  "equipaments": [
+    {
+      "description": "pá carregadeira",
+      "status": "A",
+      "id": 1
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
