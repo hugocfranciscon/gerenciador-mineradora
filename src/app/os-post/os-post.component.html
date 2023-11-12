@@ -1,0 +1,15 @@
+<app-loading [hidden]="!loading"></app-loading>
+<form [hidden]="loading" class="col s12" #form="ngForm" (submit)="confirmOs()">
+    <div class="row">
+
+        <div class="mb-3 col-md-4 col-sm-12">
+            <label for="input-name" class="form-label">Nome</label>
+            <input type="text" class="form-control form-control-sm" id="input-name" name="input-name" [(ngModel)]="this.os.description" #name="ngModel" required>
+        </div>
+    </div>
+    <div>
+        <app-btn classes="btn-success" type="submit" label="Confirmar" [disabled]=!form.valid></app-btn>
+        <app-btn classes="btn-danger" (click)="cancelOs()" label="Cancelar"></app-btn>
+    </div>
+</form>
+<app-alert></app-alert>

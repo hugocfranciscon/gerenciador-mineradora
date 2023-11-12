@@ -39,7 +39,12 @@
       "id": 1
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "events": [
+    {
+      "description": "transporte de sonda",
+      "status": "A",
+      "id": 1
+    }
+  ],
+  "os": []
 }

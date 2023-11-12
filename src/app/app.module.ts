@@ -28,6 +28,7 @@ import { EquipamentPostComponent } from './equipament-post/equipament-post.compo
 import { EventConsComponent } from './event-cons/event-cons.component';
 import { EventPostComponent } from './event-post/event-post.component';
 import { OsConsComponent } from './os-cons/os-cons.component';
+import { OsPostComponent } from './os-post/os-post.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { OsConsComponent } from './os-cons/os-cons.component';
     EventConsComponent,
     EventPostComponent,
     OsConsComponent,
+    OsPostComponent,
   ],
   imports: [
     BrowserModule,

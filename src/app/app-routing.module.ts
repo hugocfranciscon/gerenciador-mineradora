@@ -13,6 +13,10 @@ import { CustomerConsComponent } from './customer-cons/customer-cons.component';
 import { CustomerPostComponent } from './customer-post/customer-post.component';
 import { EquipamentConsComponent } from './equipament-cons/equipament-cons.component';
 import { EquipamentPostComponent } from './equipament-post/equipament-post.component';
+import { EventPostComponent } from './event-post/event-post.component';
+import { EventConsComponent } from './event-cons/event-cons.component';
+import { OsConsComponent } from './os-cons/os-cons.component';
+import { OsPostComponent } from './os-post/os-post.component';
 
 const routes: Routes = [
   {
@@ -72,10 +76,30 @@ const routes: Routes = [
       {
         path: 'events',
         component: EventComponent,
+        children: [
+          {
+            path: '',
+            component: EventConsComponent,
+          },
+          {
+            path: 'post/:id',
+            component: EventPostComponent,
+          },
+        ],
       },
       {
         path: 'os',
         component: OsComponent,
+        children: [
+          {
+            path: '',
+            component: OsConsComponent,
+          },
+          {
+            path: 'post/:id',
+            component: OsPostComponent,
+          },
+        ],
       },
     ],
   },

@@ -1,1 +1,39 @@
-<p>os-cons works!</p>
+<app-loading [hidden]="!loading"></app-loading>
+<div class="height-table" [hidden]="loading">
+    <table class="table table-sm table-hover col-sm-12">
+        <thead>
+            <tr>
+                <th class="col-sm-2">
+                    <button class="btn btn-sm btn-primary" (click)="newOs()">
+                        Novo
+                    </button>
+                </th>
+                <th class="col-sm-2">
+                    Projeto
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="formFilter.name" placeholder="Pesquisar..." />
+                </th>
+                <th class="col-sm-1">
+                    Data Inicio
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="formFilter.date" placeholder="Pesquisar..." />
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle" *ngFor="let u of filtering(); index as i">
+                <td>
+                    <button class="btn btn-sm btn-success me-1" (click)="editOs(u)">
+                        Editar
+                    </button>
+                    <button class="btn btn-sm btn-danger me-1" (click)="deleteOs(u)">
+                        Excluir
+                    </button>
+                </td>
+                <td>{{ u.name }}</td>
+                <td>{{ u.date }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="flex-center">
+    <ngb-pagination [collectionSize]="totalItens" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [boundaryLinks]="true" [ellipses]="false"></ngb-pagination>
+</div>
