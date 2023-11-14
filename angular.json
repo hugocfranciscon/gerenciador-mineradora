@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/gerenciador",
-            "baseHref":"/gerenciador/",
+            "baseHref":"/gerenciador-mineradora/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
