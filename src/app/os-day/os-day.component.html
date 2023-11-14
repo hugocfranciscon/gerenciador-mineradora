@@ -1,0 +1,63 @@
+<app-loading [hidden]="!loading"></app-loading>
+<form [hidden]="loading" class="col s12" #form="ngForm" (submit)="confirmDay()">
+    <div class="row">
+        <div class="mb-3 col-md-3 col-sm-12">
+            <label for="input-initialDate" class="form-label">Data Inicial</label>
+            <input type="date" 
+                   class="form-control form-control-sm" 
+                   id="input-initialDate" 
+                   name="input-initialDate" 
+                   [(ngModel)]="this.day.date"
+                   #name="ngModel" 
+                   required>
+        </div>
+    </div>
+    <div class="buttons">
+        <app-btn classes="btn-success" type="submit" label="Confirmar" [disabled]=!form.valid></app-btn>
+        <app-btn classes="btn-danger" (click)="cancelDay()" label="Cancelar"></app-btn>
+    </div>
+</form>
+<app-alert></app-alert>
+<div class="height-table" [hidden]="loading">
+    <div class="d-flex justify-content-between">
+        <h4>Eventos por dia</h4>
+    </div>
+    <table class="table table-sm table-hover col-sm-12">
+        <thead>
+            <tr>
+                <th class="col-sm-2">
+                    <button class="btn btn-sm btn-primary" (click)="newEvent()">
+                        Novo
+                    </button>
+                </th>
+                <th class="col-sm-2">Usuário</th>
+                <th class="col-sm-3">Evento</th>
+                <th class="col-sm-2">Inicio</th>
+                <th class="col-sm-2">Fim</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle" *ngFor="let u of filtering(); index as i">
+                <td>
+                    <button class="btn btn-sm btn-success me-1" (click)="editEvent(u)">
+                        Editar
+                    </button>
+                    <button class="btn btn-sm btn-danger me-1" (click)="deleteEvent(u)">
+                        Excluir
+                    </button>
+                </td>
+                <td>{{ u.user.name }}</td>
+                <td>{{ u.event.description }}</td>
+                <td>{{ u.startHour }}</td>
+                <td>{{ u.finishHour }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="flex-center">
+        <ngb-pagination [collectionSize]="totalItens" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [boundaryLinks]="true" [ellipses]="false"></ngb-pagination>
+    </div>    
+</div>
+<app-alert></app-alert>
+<ng-template #rt let-r="result" let-t="term">	
+	<ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>

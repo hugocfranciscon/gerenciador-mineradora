@@ -17,6 +17,8 @@ import { EventPostComponent } from './event-post/event-post.component';
 import { EventConsComponent } from './event-cons/event-cons.component';
 import { OsConsComponent } from './os-cons/os-cons.component';
 import { OsPostComponent } from './os-post/os-post.component';
+import { OsDayComponent } from './os-day/os-day.component';
+import { OsDayEventsComponent } from './os-day-events/os-day-events.component';
 
 const routes: Routes = [
   {
@@ -98,6 +100,14 @@ const routes: Routes = [
           {
             path: 'post/:id',
             component: OsPostComponent,
+          },
+          {
+            path: 'day/:id',
+            component: OsDayComponent,
+          },
+          {
+            path: 'event/:id',
+            component: OsDayEventsComponent,
           },
         ],
       },

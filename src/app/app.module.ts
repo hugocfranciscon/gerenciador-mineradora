@@ -11,7 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UsersComponent } from './users/users.component';
 import { NgxMaskModule } from 'ngx-mask';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomersComponent } from './customers/customers.component';
 import { EquipamentComponent } from './equipament/equipament.component';
 import { EventComponent } from './event/event.component';
@@ -29,6 +29,21 @@ import { EventConsComponent } from './event-cons/event-cons.component';
 import { EventPostComponent } from './event-post/event-post.component';
 import { OsConsComponent } from './os-cons/os-cons.component';
 import { OsPostComponent } from './os-post/os-post.component';
+import { NgxCurrencyModule } from 'ngx-currency';
+import { OsDayComponent } from './os-day/os-day.component';
+import { OsDayEventsComponent } from './os-day-events/os-day-events.component';
+
+export const customCurrencyMaskConfig = {
+  align: 'right',
+  allowNegative: true,
+  allowZero: true,
+  decimal: ',',
+  precision: 2,
+  prefix: '',
+  suffix: '',
+  thousands: '.',
+  nullable: true,
+};
 
 @NgModule({
   declarations: [
@@ -55,6 +70,8 @@ import { OsPostComponent } from './os-post/os-post.component';
     EventPostComponent,
     OsConsComponent,
     OsPostComponent,
+    OsDayComponent,
+    OsDayEventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +81,8 @@ import { OsPostComponent } from './os-post/os-post.component';
     HttpClientModule,
     NgxMaskModule.forRoot(),
     NgbModule,
+    NgbTypeaheadModule,
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
   ],
   providers: [],
   bootstrap: [AppComponent],

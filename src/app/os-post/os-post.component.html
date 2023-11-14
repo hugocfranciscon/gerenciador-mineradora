@@ -1,15 +1,115 @@
 <app-loading [hidden]="!loading"></app-loading>
 <form [hidden]="loading" class="col s12" #form="ngForm" (submit)="confirmOs()">
     <div class="row">
-
-        <div class="mb-3 col-md-4 col-sm-12">
+        <div class="mb-12 col-md-12 col-sm-12">
+            <label for="input-customer">Cliente:</label>
+            <input type="text" 
+                   class="form-control form-control-sm" 
+                   id="input-customer" 
+                   name="input-customer" 
+                   [(ngModel)]="this.os.customer"
+                   #name="ngModel" 
+                   [ngbTypeahead]="search"
+                   [resultTemplate]="rt"
+                   [inputFormatter]="formatter"
+                   required />
+        </div>        
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-3 col-sm-12">
             <label for="input-name" class="form-label">Nome</label>
-            <input type="text" class="form-control form-control-sm" id="input-name" name="input-name" [(ngModel)]="this.os.description" #name="ngModel" required>
+            <input type="text" 
+                   class="form-control form-control-sm" 
+                   id="input-name" 
+                   name="input-name" 
+                   [(ngModel)]="this.os.name"                    
+                   #name="ngModel" 
+                   required>
+        </div>
+        <div class="mb-3 col-md-3 col-sm-12">
+            <label for="input-initialDate" class="form-label">Data Inicial</label>
+            <input type="date" 
+                   class="form-control form-control-sm" 
+                   id="input-initialDate" 
+                   name="input-initialDate" 
+                   [(ngModel)]="this.os.initialDate"                    
+                   #name="ngModel" 
+                   required>
+        </div>
+        <div class="mb-3 col-md-3 col-sm-12">
+            <label for="input-endForecast" class="form-label">Previsão de termino</label>
+            <input type="date" 
+                   class="form-control form-control-sm" 
+                   id="input-endForecast" 
+                   name="input-endForecast" 
+                   [(ngModel)]="this.os.endForecast"                    
+                   #name="ngModel" 
+                   required>
+        </div>
+        <div class="mb-3 col-md-3 col-sm-12">
+            <label for="input-value" class="form-label">Valor do projeto</label>
+            <input type="text" 
+                   class="form-control form-control-sm text-end" 
+                   id="input-value" 
+                   name="input-value" 
+                   [(ngModel)]="this.os.value"                    
+                   #name="ngModel" 
+                   currencyMask
+                   required>
         </div>
     </div>
-    <div>
+    <div class="row">
+        <div class="mb-12 col-md-12 col-sm-12">
+            <label for="input-observation" class="form-label">Observação</label>
+            <textarea class="form-control form-control-sm" 
+                   id="input-observation" 
+                   name="input-observation" 
+                   [(ngModel)]="this.os.observation"                    
+                   #name="ngModel"                    
+                   required
+                   rows="2"></textarea>
+        </div>
+    </div>
+    <div class="buttons">
         <app-btn classes="btn-success" type="submit" label="Confirmar" [disabled]=!form.valid></app-btn>
         <app-btn classes="btn-danger" (click)="cancelOs()" label="Cancelar"></app-btn>
     </div>
 </form>
+
+<div class="height-table" [hidden]="loading">
+    <div class="d-flex justify-content-between">
+        <h4>Eventos por dia</h4>
+    </div>
+    <table class="table table-sm table-hover col-sm-12">
+        <thead>
+            <tr>
+                <th class="col-sm-2">
+                    <button class="btn btn-sm btn-primary" (click)="newDay()">
+                        Novo
+                    </button>
+                </th>
+                <th class="col-sm-1">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="align-middle" *ngFor="let u of filtering(); index as i">
+                <td>
+                    <button class="btn btn-sm btn-success me-1" (click)="editDay(u)">
+                        Editar
+                    </button>
+                    <button class="btn btn-sm btn-danger me-1" (click)="deleteDay(u)">
+                        Excluir
+                    </button>
+                </td>
+                <td>{{ u.date | date: 'dd/MM/YYYY' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="flex-center">
+        <ngb-pagination [collectionSize]="totalItens" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [boundaryLinks]="true" [ellipses]="false"></ngb-pagination>
+    </div>    
+</div>
 <app-alert></app-alert>
+<ng-template #rt let-r="result" let-t="term">	
+	<ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>

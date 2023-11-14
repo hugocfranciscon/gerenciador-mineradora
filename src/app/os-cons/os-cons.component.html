@@ -29,7 +29,7 @@
                     </button>
                 </td>
                 <td>{{ u.name }}</td>
-                <td>{{ u.date }}</td>
+                <td>{{ u.initialDate | date: 'dd/MM/YYYY' }}</td>
             </tr>
         </tbody>
     </table>

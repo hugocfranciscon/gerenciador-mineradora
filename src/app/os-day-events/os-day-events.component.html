@@ -1,0 +1,107 @@
+<app-loading [hidden]="!loading"></app-loading>
+<form [hidden]="loading" class="col s12" #form="ngForm" (submit)="confirmEvent()">
+    <div class="row">
+        <div class="mb-12 col-md-12 col-sm-12">
+            <label for="input-users">Usuário</label>
+            <input type="text" 
+                   class="form-control form-control-sm" 
+                   id="input-users" 
+                   name="input-users" 
+                   [(ngModel)]="this.event.user"
+                   #name="ngModel" 
+                   [ngbTypeahead]="searchUsers"
+                   [resultTemplate]="rtUsers"
+                   [inputFormatter]="formatterUsers"
+                   required />
+        </div>        
+    </div>
+    <div class="row">
+        <div class="mb-12 col-md-12 col-sm-12">
+            <label for="input-events">Evento</label>
+            <input type="text" 
+                   class="form-control form-control-sm" 
+                   id="input-events" 
+                   name="input-events" 
+                   [(ngModel)]="this.event.event"
+                   #name="ngModel" 
+                   [ngbTypeahead]="searchEvents"
+                   [resultTemplate]="rtEvents"
+                   [inputFormatter]="formatterEvents"
+                   required />
+        </div>        
+    </div>
+    <div class="row">
+        <div class="mb-12 col-md-12 col-sm-12">
+            <label for="input-equipaments">Equipamento</label>
+            <input type="text" 
+                   class="form-control form-control-sm" 
+                   id="input-equipaments" 
+                   name="input-equipaments" 
+                   [(ngModel)]="this.event.equipament"
+                   #name="ngModel" 
+                   [ngbTypeahead]="searchEquipaments"
+                   [resultTemplate]="rtEquipaments"
+                   [inputFormatter]="formatterEquipaments"
+                   required />
+        </div>        
+    </div>
+    <div class="row">
+        <div class="mb-4 col-md-4 col-sm-12">
+            <label for="input-initialDate" class="form-label">Hora Inicial</label>
+            <input type="time" 
+                   class="form-control form-control-sm" 
+                   id="input-initialDate" 
+                   name="input-initialDate" 
+                   [(ngModel)]="this.event.startHour"                    
+                   #startHour="ngModel" 
+                   required>
+        </div>
+        <div class="mb-4 col-md-4 col-sm-12">
+            <label for="input-endForecast" class="form-label">Hora Final</label>
+            <input type="time" 
+                   class="form-control form-control-sm" 
+                   id="input-endForecast" 
+                   name="input-endForecast" 
+                   [(ngModel)]="this.event.finishHour"                    
+                   #finishHour="ngModel" 
+                   required>
+        </div>
+        <div class="mb-4 col-md-4 col-sm-12">
+            <label for="input-status" class="form-label">Status</label>
+            <select class="form-control form-control-sm" 
+                    id="input-status" 
+                    name="input-status" 
+                    [(ngModel)]="this.event.status" 
+                    required>
+                <option value="A">Ativo</option>
+                <option value="I">Inativo</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-12 col-md-12 col-sm-12">
+            <label for="input-observation" class="form-label">Observação</label>
+            <textarea class="form-control form-control-sm" 
+                   id="input-observation" 
+                   name="input-observation" 
+                   [(ngModel)]="this.event.observation"                    
+                   #name="ngModel"                    
+                   required
+                   rows="2"></textarea>
+        </div>
+    </div>
+    <div class="buttons">
+        <app-btn classes="btn-success" type="submit" label="Confirmar" [disabled]=!form.valid></app-btn>
+        <app-btn classes="btn-danger" (click)="cancelEvent()" label="Cancelar"></app-btn>
+    </div>
+</form>
+<app-alert></app-alert>
+<ng-template #rtUsers let-r="result" let-t="term">	
+	<ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>
+<ng-template #rtEvents let-r="result" let-t="term">	
+	<ngb-highlight [result]="r.description" [term]="t"></ngb-highlight>
+</ng-template>
+<ng-template #rtEquipaments let-r="result" let-t="term">	
+	<ngb-highlight [result]="r.description" [term]="t"></ngb-highlight>
+</ng-template>
