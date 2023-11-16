@@ -88,7 +88,7 @@ export class OsDayComponent implements OnInit {
 
   getDay(id: number) {
     this.loading = true;
-    this.req.get('day/' + id).subscribe(
+    this.req.get('day/' + id).then(
       (ret: any) => {
         this.loading = false;
         this.day = ret;
@@ -100,7 +100,7 @@ export class OsDayComponent implements OnInit {
       }
     );
 
-    this.req.get('eventsDay?day.id=' + id).subscribe(
+    this.req.get('eventsDay?day.id=' + id).then(
       (ret: any) => {
         this.loading = false;
         this.events = ret;

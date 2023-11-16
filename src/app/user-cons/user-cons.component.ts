@@ -50,7 +50,7 @@ export class UserConsComponent implements OnInit {
 
   getUsers() {
     this.loading = true;
-    this.req.get('users', {}).subscribe(
+    this.req.get('users').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {

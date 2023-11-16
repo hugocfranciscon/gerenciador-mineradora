@@ -2,6 +2,7 @@
 Projeto da pós JAVA
 
 ## Endereço de Deploy - GitHub Pages
+https://hugocfranciscon.github.io/gerenciador-mineradora
 
 ## Protótipo
 https://www.figma.com/file/EJX2xgfntz8LtdCTd5hYPa/Gerenciamento-de-mineradora?type=design&node-id=3-5&mode=design&t=ng4w7zUC3qlgdJeJ-0

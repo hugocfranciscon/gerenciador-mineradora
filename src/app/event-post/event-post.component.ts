@@ -8,10 +8,9 @@ import { Event } from '../models/Event';
 @Component({
   selector: 'app-event-post',
   templateUrl: './event-post.component.html',
-  styleUrls: ['./event-post.component.css']
+  styleUrls: ['./event-post.component.css'],
 })
 export class EventPostComponent implements OnInit {
-
   @ViewChild(AlertComponent) alertComponent: AlertComponent | undefined;
   @ViewChild('form') form!: NgForm;
 
@@ -29,7 +28,7 @@ export class EventPostComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     if (Number(routeParams.get('id')) > 0) {
       this.loading = true;
-      this.req.get('events/' + Number(routeParams.get('id'))).subscribe(
+      this.req.get('events/' + Number(routeParams.get('id'))).then(
         (ret: any) => {
           this.loading = false;
           this.event = ret;
@@ -45,26 +44,24 @@ export class EventPostComponent implements OnInit {
   confirmEvent() {
     this.loading = true;
     if (this.event?.id != undefined) {
-      this.req
-        .put('events/' + this.event.id, this.event)
-        .subscribe(
-          (ret: any) => {
-            if (ret.status == 'erro') {
-              this.loading = false;
-              alert(ret.msg);
-              return;
-            }
-            this.alertComponent?.showModal(
-              'Sucesso',
-              'Evento salvo com sucesso.'
-            );
-            this.router.navigate(['/home/events']);
-          },
-          (err: any) => {
+      this.req.put('events/' + this.event.id, this.event).subscribe(
+        (ret: any) => {
+          if (ret.status == 'erro') {
             this.loading = false;
-            alert('ERRO ' + err);
+            alert(ret.msg);
+            return;
           }
-        );
+          this.alertComponent?.showModal(
+            'Sucesso',
+            'Evento salvo com sucesso.'
+          );
+          this.router.navigate(['/home/events']);
+        },
+        (err: any) => {
+          this.loading = false;
+          alert('ERRO ' + err);
+        }
+      );
       return;
     }
     this.req.post('events', this.event).subscribe(
@@ -74,10 +71,7 @@ export class EventPostComponent implements OnInit {
           alert(ret.msg);
           return;
         }
-        this.alertComponent?.showModal(
-          'Sucesso',
-          'Evento salvo com sucesso.'
-        );
+        this.alertComponent?.showModal('Sucesso', 'Evento salvo com sucesso.');
         this.router.navigate(['/home/events']);
       },
       (err: any) => {

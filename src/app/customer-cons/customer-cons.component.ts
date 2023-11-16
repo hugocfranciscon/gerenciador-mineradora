@@ -71,7 +71,7 @@ export class CustomerConsComponent implements OnInit {
 
   getCustomers() {
     this.loading = true;
-    this.req.get('customers', {}).subscribe(
+    this.req.get('customers').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {

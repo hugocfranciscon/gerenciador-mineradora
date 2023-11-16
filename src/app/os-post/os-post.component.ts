@@ -51,7 +51,7 @@ export class OsPostComponent implements OnInit {
 
   getOs(id: number) {
     this.loading = true;
-    this.req.get('os/' + id).subscribe(
+    this.req.get('os/' + id).then(
       (ret: any) => {
         this.loading = false;
         this.os = ret;
@@ -62,7 +62,7 @@ export class OsPostComponent implements OnInit {
       }
     );
 
-    this.req.get('day?os.id=' + id).subscribe(
+    this.req.get('day?os.id=' + id).then(
       (ret: any) => {
         this.loading = false;
         this.days = ret;
@@ -117,7 +117,7 @@ export class OsPostComponent implements OnInit {
 
   getCustomers() {
     this.loading = true;
-    this.req.get('customers', {}).subscribe(
+    this.req.get('customers').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {

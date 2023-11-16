@@ -28,7 +28,7 @@ export class CustomerPostComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     if (Number(routeParams.get('id')) > 0) {
       this.loading = true;
-      this.req.get('customers/' + Number(routeParams.get('id'))).subscribe(
+      this.req.get('customers/' + Number(routeParams.get('id'))).then(
         (ret: any) => {
           this.loading = false;
           this.customer = ret;

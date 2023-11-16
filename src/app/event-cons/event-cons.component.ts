@@ -6,10 +6,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-event-cons',
   templateUrl: './event-cons.component.html',
-  styleUrls: ['./event-cons.component.css']
+  styleUrls: ['./event-cons.component.css'],
 })
 export class EventConsComponent implements OnInit {
-
   public loading: boolean = false;
   public formFilter: any = {};
   public equipaments: any = [];
@@ -70,7 +69,7 @@ export class EventConsComponent implements OnInit {
 
   getEvents() {
     this.loading = true;
-    this.req.get('events', {}).subscribe(
+    this.req.get('events').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {
@@ -86,4 +85,3 @@ export class EventConsComponent implements OnInit {
     );
   }
 }
-

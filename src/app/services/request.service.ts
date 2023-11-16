@@ -9,9 +9,17 @@ import { Observable } from 'rxjs';
 export class RequestService {
   constructor(private http: HttpClient) {}
 
-  get(url: string, body: any = {}): Observable<any> {
-    let lUrl = environment.url + url;
-    return this.http.get(lUrl, body);
+  async get(url: string) {
+    return new Promise((resolve) => {
+      this.http.get(environment.url + url).subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (error) => {
+          resolve(error);
+        }
+      );
+    });
   }
 
   post(url: string, body: any): Observable<any> {

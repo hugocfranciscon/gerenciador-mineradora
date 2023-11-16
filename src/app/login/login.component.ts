@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.loading = true;
-    this.request.get('logar', body).subscribe(
+    this.request.get('logar').then(
       (ret: any) => {
         this.loading = false;
 

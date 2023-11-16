@@ -69,7 +69,7 @@ export class EquipamentConsComponent implements OnInit {
 
   getEquipaments() {
     this.loading = true;
-    this.req.get('equipaments', {}).subscribe(
+    this.req.get('equipaments').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {

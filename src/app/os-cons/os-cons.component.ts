@@ -6,10 +6,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-os-cons',
   templateUrl: './os-cons.component.html',
-  styleUrls: ['./os-cons.component.css']
+  styleUrls: ['./os-cons.component.css'],
 })
 export class OsConsComponent implements OnInit {
-
   public loading: boolean = false;
   public formFilter: any = {};
   public os: any = [];
@@ -70,7 +69,7 @@ export class OsConsComponent implements OnInit {
 
   getOs() {
     this.loading = true;
-    this.req.get('os', {}).subscribe(
+    this.req.get('os').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {

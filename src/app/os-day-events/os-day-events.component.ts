@@ -44,7 +44,7 @@ export class OsDayEventsComponent implements OnInit {
       this.getEvent(this.dayEventNumber);
     }
 
-    this.req.get('users', {}).subscribe(
+    this.req.get('users').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {
@@ -58,7 +58,7 @@ export class OsDayEventsComponent implements OnInit {
         alert('ERRO ' + err);
       }
     );
-    this.req.get('events', {}).subscribe(
+    this.req.get('events').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {
@@ -72,7 +72,7 @@ export class OsDayEventsComponent implements OnInit {
         alert('ERRO ' + err);
       }
     );
-    this.req.get('equipaments', {}).subscribe(
+    this.req.get('equipaments').then(
       (ret: any) => {
         this.loading = false;
         if (ret.status == 'erro') {
@@ -90,7 +90,7 @@ export class OsDayEventsComponent implements OnInit {
 
   getEvent(id: number) {
     this.loading = true;
-    this.req.get('eventsDay/' + id).subscribe(
+    this.req.get('eventsDay/' + id).then(
       (ret: any) => {
         this.loading = false;
         this.event = ret;
