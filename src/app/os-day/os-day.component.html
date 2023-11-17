@@ -26,7 +26,7 @@
         <thead>
             <tr>
                 <th class="col-sm-2">
-                    <button class="btn btn-sm btn-primary" (click)="newEvent()">
+                    <button class="btn btn-sm btn-primary" (click)="newEvent()" [disabled]=!form.valid>
                         Novo
                     </button>
                 </th>

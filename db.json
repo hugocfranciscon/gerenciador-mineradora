@@ -229,6 +229,30 @@
       },
       "date": "2023-11-07",
       "id": 6
+    },
+    {
+      "os": {
+        "customer": {
+          "name": "hugo",
+          "surname": "hugo",
+          "cpfCnpj": "070.470.609-10",
+          "fone": "43988087502",
+          "email": "hugo@gmail.com",
+          "city": "cambira",
+          "state": "pr",
+          "address": "teste",
+          "status": "A",
+          "id": 1
+        },
+        "name": "teste",
+        "initialDate": "2023-11-13",
+        "endForecast": "2023-11-30",
+        "value": 100,
+        "observation": "teste",
+        "id": 1
+      },
+      "date": "2023-11-16",
+      "id": 7
     }
   ],
   "eventsDay": [
@@ -336,6 +360,57 @@
       "status": "A",
       "observation": "teste",
       "id": 3
+    },
+    {
+      "day": {
+        "os": {
+          "customer": {
+            "name": "hugo",
+            "surname": "hugo",
+            "cpfCnpj": "070.470.609-10",
+            "fone": "43988087502",
+            "email": "hugo@gmail.com",
+            "city": "cambira",
+            "state": "pr",
+            "address": "teste",
+            "status": "A",
+            "id": 1
+          },
+          "name": "teste",
+          "initialDate": "2023-11-13",
+          "endForecast": "2023-11-30",
+          "value": 100,
+          "observation": "teste",
+          "id": 1
+        },
+        "date": "2023-11-16",
+        "id": 7
+      },
+      "user": {
+        "name": "HUGO",
+        "email": "a@a.a",
+        "fone": "99999999999",
+        "status": "A",
+        "login": "a",
+        "password": "a",
+        "type": "A",
+        "id": 1
+      },
+      "event": {
+        "description": "transporte de sonda",
+        "status": "A",
+        "id": 1
+      },
+      "equipament": {
+        "description": "pá carregadeira",
+        "status": "A",
+        "id": 1
+      },
+      "startHour": "19:00",
+      "finishHour": "19:30",
+      "status": "A",
+      "observation": "teste",
+      "id": 4
     }
   ]
 }

@@ -32,12 +32,12 @@ export class OsDayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.day = new Day();
     let o = window.localStorage.getItem('os');
     if (o) {
       this.os = JSON.parse(o);
       this.day.os = this.os;
     }
-    this.day = new Day();
     const routeParams = this.route.snapshot.paramMap;
     if (Number(routeParams.get('id')) > 0) {
       this.dayNumber = Number(routeParams.get('id'));
